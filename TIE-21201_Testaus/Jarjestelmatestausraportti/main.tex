@@ -1,0 +1,88 @@
+\documentclass[finnish,12pt]{article}
+
+\usepackage[finnish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[hmargin=1in,vmargin=1in]{geometry}
+\usepackage{pdflscape}
+
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{filecontents}
+
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{lipsum}
+\usepackage[nottoc]{tocbibind}
+\usepackage{fancyhdr}
+\usepackage{pgffor}
+%\usepackage[backend=biber,style=numeric,maxbibnames=99,maxcitenames=2,
+%       firstinits=true,uniquename=init, sorting=none]{biblatex}
+
+\begin{document}
+
+\begin{center}
+
+\thispagestyle{empty}
+
+$ $
+
+\vspace{250pt}
+
+\begin{bfseries}
+
+{\Large Ohjelmistojen testaus, vaihe 2}
+
+{\Huge Järjestelmätestausraportti}
+
+{\Large $\langle$testikohde ja versio$\rangle$}
+
+\end{bfseries}
+
+\vspace{180pt}
+
+TTY, Tietotekniikan laitos
+
+TIE-21201 Ohjelmistojen testaus
+
+\vspace{12pt}
+
+Tekijä: $\langle$vastuuhenkilö$\rangle$
+
+Jakelu: $\langle$kenelle jaellaan$\rangle$
+
+Dokumentin tila: $\langle$työversio$\rangle$
+
+Muokattu: \today
+
+\end{center}
+
+\newpage
+
+
+\tableofcontents
+
+\newpage
+
+%Load all chapters from Chapters folder
+\def\FileName{./Chapters/chapter}
+\foreach \i in {00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, ...,19}{%
+    \IfFileExists{\FileName\i}{%
+    	\input{\FileName\i}%
+    }
+}
+
+\newpage
+\appendix
+
+%Load all appendixes from Appendix folder
+\def\FileName{./Appendix/appendix}
+\foreach \i in {00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, ...,19}{%
+    \IfFileExists{\FileName\i}{%
+    	\input{\FileName\i}%
+    }
+}
+
+\end{document}
